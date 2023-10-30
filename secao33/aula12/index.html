@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 12</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <section>
+        <h1>Cadastro</h1>
+    </section>
+    <div>
+        <form action="#" id="div">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" placeholder="Nome Completo" required><br>
+
+            <label for="nascimento">Data de Nascimento</label>
+            <input type="date" id="nascimento"><br>
+
+            <p class="inline">Gênero:</p><br>
+            <label for="masc">Masculino:</label>
+            <input type="radio" name="genero" id="masc">
+            <label for="fem">Feminino:</label>
+            <input type="radio" name="genero" id="fem">
+            <label for="outro">Outros:</label>
+            <input type="radio" name="genero" id="outro"><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email"><br>
+
+            <label for="cor">Cor favorita:</label>
+            <input type="color" id="cor" value="#0066ff"><br>
+
+            <label for="desc">Descreva suas competências:</label><br>
+            <textarea name="desc" id="desc" cols="30" rows="5" required placeholder="Fale um pouco das suas competências..."></textarea><br>
+
+            <p class="inline">Linguagens que você domina:</p><br>
+            <label for="python">Python</label>
+            <input type="checkbox" name="python" id="python">
+            <label for="javascript">JavaScript</label>
+            <input type="checkbox" name="javascript" id="javascript">
+            <label for="mysql">MySQL</label>
+            <input type="checkbox" name="mysql" id="mysql"><br>
+
+            <label for="numero">Celular:</label>
+            <input type="number" name="numero" id="numero" placeholder="Digite seu celular"><br>
+
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" id="senha"><br>
+
+            <p class="inline">Faça o Upload do seu currículo:</p><br>
+            <input type="file" name="curriculo" id="curriculo" accept=".pdf, .docs" required>
+
+            <br>
+            <button type="submit">Enviar</button>
+            <button type="reset">Resetar</button>
+        </form>
+    </div>
+</body>
+</html>

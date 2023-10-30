@@ -1,0 +1,19 @@
+h1:hover {
+    background-color: aqua;
+}
+
+.borda:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    border: 5px solid red;
+    outline: none;
+}
+
+.nome:checked + p{
+    color: blue;
+    text-decoration: underline;
+}
+
+.pessoas {
+    margin-top: 0px;
+    display: inline;
+}

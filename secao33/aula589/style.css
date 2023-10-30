@@ -1,0 +1,12 @@
+p::first-letter {
+    font-size: 50px;
+    margin: 0 5 5 0px;
+    float: left;
+}
+
+h1::after {
+    display: block;
+    font-size: 20px;
+    content: 'Olá';
+    color: blueviolet;
+}

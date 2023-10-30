@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: monospace;
+}
+
+h1 {
+    font-size: 6rem;
+}
+
+/*menu*/
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(255, 255, 255, 1);
+}
+
+.menu-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.menu-content h1 {
+    font-size: 2.3rem;
+}
+
+.menu-content h1 a {
+    text-decoration: none;
+}
+
+.menu-content ul {
+    display: flex;
+    list-style-type: none;
+    font-size: 1.6rem;
+    padding: 2rem 0;
+}
+
+.menu-content ul li a {
+    padding: 0 1rem;
+    text-decoration: none;
+    color: black;
+}
+
+.menu-content ul li a:hover {
+    padding-bottom: 0.5rem;
+    border-bottom: 0.3rem solid rgba(255, 0, 0, 0.567);
+}
+
+/*background-images*/
+.main-bg {
+    background-image: url('../img/principal-image.svg');
+    background-size: cover;
+    background-position: center center;
+}
+
+/*main-content*/
+.main-content {
+    max-width: 120rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+    height: 100vh;
+    padding-top: 5.84rem;
+}
+
+.section {
+    width: 100%;
+    height: 100vh;
+}
+
+.main-content section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content-intro-left {
+    color: white;
+    width: 40%;
+}
+
+.content-intro-right {
+    color: white;
+    width: 60%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-intro-right img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+/*top 3*/
+.main-content .container-top3 { /*eh necessario colocar o caminho das duas classes para ficar com a especificidade 0,2,0 para sobreescrever uma configuracao acima*/
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main-content .container-top3 div {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.main-content .container-top3 div h2 {
+    font-size: 6rem;
+}

@@ -1,0 +1,24 @@
+div {
+    background-color: bisque;
+    height: 500px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#div {
+    background-color: aquamarine;
+    width: 500px;
+    height: 500px;
+    border: solid 5px black;
+}
+
+.inline {
+    display: inline;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+}

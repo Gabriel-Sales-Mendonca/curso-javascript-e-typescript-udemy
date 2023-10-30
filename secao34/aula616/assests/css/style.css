@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: monospace;
+}
+
+h1 {
+    font-size: 6rem;
+}
+
+/*menu*/
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(255, 255, 255, 1);
+}
+
+.menu-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.menu-content h1 {
+    font-size: 2.3rem;
+}
+
+.menu-content h1 a {
+    text-decoration: none;
+}
+
+.menu-content ul {
+    display: flex;
+    list-style-type: none;
+    font-size: 1.6rem;
+    padding: 2rem 0;
+}
+
+.menu-content ul li a {
+    padding: 0 1rem;
+    text-decoration: none;
+    color: black;
+}
+
+.menu-content ul li a:hover {
+    padding-bottom: 0.5rem;
+    border-bottom: 0.3rem solid rgba(255, 0, 0, 0.567);
+}
+
+/*background-images*/
+.main-bg {
+    background-image: url('../img/principal-image.svg');
+    background-size: cover;
+    background-position: center center;
+    color: white;
+}
+
+/*main-content*/
+.main-content {
+    max-width: 120rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+    min-height: 100vh;
+    padding: 0 6rem;
+    padding-top: 5.84rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section {
+    width: 100%;
+    height: 100vh;
+}
+
+.main-content section {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content-intro-left {
+    color: white;
+    width: 40%;
+}
+
+.content-intro-right {
+    color: white;
+    width: 60%;
+    min-height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-intro-right img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+/*intro*/
+.main-content .container-intro { /*eh necessario colocar o caminho das duas classes para ficar com a especificidade 0,2,0 para sobreescrever uma configuracao acima*/
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main-content .container-intro div {
+    width: 60%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.main-content .container-intro div h2 {
+    font-size: 6rem;
+}
+
+/*top3*/
+.top3-container {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.top3-content h2 {
+    font-size: 5.5rem;
+    margin-bottom: 1rem;
+}
+
+.grid-top3 {
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+    counter-reset: grid-counter;
+}
+
+.grid-top3 h3 {
+    font-size: 3rem;
+    margin-bottom: 1.2rem;
+    position: relative;
+    padding-left: 4rem;
+}
+
+.grid-top3 h3::before {
+    counter-increment: grid-counter;
+    content: counter(grid-counter);
+    position: absolute;
+    top: -2rem;
+    left: 0;
+    font-style: italic;
+    font-size: 6rem;
+    transform: rotate(5deg);
+}
