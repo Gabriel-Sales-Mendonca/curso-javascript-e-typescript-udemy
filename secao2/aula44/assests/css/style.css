@@ -58,6 +58,7 @@ h2 {
     width: 50%;
     height: 3.5rem;
     margin: 0 auto;
+    margin-bottom: 2rem;
     padding: 0.2rem;
     font-size: 1.8rem;
     border: none;
@@ -90,4 +91,15 @@ td {
     box-sizing: border-box;
     padding: 0.5rem 0rem;
     padding-right: 10rem;
+}
+
+.valido {
+    background-color: rgb(109, 232, 78);
+    box-sizing: border-box;
+    padding: 1rem 2rem;
+}
+
+.invalido {
+    background-color: rgb(228, 101, 101);
+    padding: 1rem 2rem;
 }
