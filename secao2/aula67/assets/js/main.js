@@ -56,6 +56,7 @@ document.addEventListener('click', function(e) {
     if (elemento.classList.contains('apagar')) {
         //remover o pai desse elemento, que no caso é a li que contém a tarefa
         elemento.parentElement.remove()
+        salvarTarefa(tarefas)
     }
 })
 
@@ -80,4 +81,23 @@ function salvarTarefa(elemento) {
         let tarefaTexto = tarefas[tarefa].innerText.replace(' Apagar', '')
         listaDeTarefas.push(tarefaTexto)
     }
+    
+    const tarefasJson = JSON.stringify(listaDeTarefas)
+    localStorage.setItem('tarefas', tarefasJson)
 }
+
+function restauraTarefas() {
+    const tarefas = localStorage.getItem('tarefas')
+    const listaDeTarefas = JSON.parse(tarefas)
+    
+    for (let tarefa of listaDeTarefas) {
+        const elementoTarefa= criarElementoTarefa()
+        elementoTarefa.innerHTML = tarefa + ' '
+        listaTarefas.appendChild(elementoTarefa)
+        const elementoBotao = criarBotaoApagar()
+        adicionarBotao(elementoBotao, elementoTarefa)
+    }
+}
+
+
+restauraTarefas()
