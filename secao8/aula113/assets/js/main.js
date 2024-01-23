@@ -1,6 +1,11 @@
+/*
 fetch('pessoas.json')
     .then(pessoas => pessoas.json())
     .then(json => carregaElementosNaPagina(json))
+*/
+
+axios('pessoas.json')
+    .then(pessoas => carregaElementosNaPagina(pessoas.data))
 
 function carregaElementosNaPagina(json) {
     const resultado = document.querySelector('.resultado') // elemento onde será adicionada a tabela
