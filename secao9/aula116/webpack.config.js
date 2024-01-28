@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
     mode: 'development',
@@ -14,10 +14,10 @@ module.exports = {
             use: {
                 loader: 'babel-loader',
                 options: {
-                    presets: ['@babel/preset-env']
+                    presets: ['@babel/env']
                 }
             }
         }]
     },
     devtool: 'source-map'
-};
+}
