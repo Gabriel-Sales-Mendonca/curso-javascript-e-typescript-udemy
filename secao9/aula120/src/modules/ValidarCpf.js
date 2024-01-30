@@ -1,5 +1,5 @@
 const _cpfLimpo = Symbol('cpfLimpo')
-class ValidarCpf {
+export default class ValidarCpf {
     constructor(cpf) {
         this[_cpfLimpo] = cpf.replace(/\D+/g, '')
     }

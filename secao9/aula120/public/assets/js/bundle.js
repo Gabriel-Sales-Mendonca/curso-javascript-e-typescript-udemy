@@ -2,6 +2,120 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/modules/GeraCpf.js":
+/*!********************************!*\
+  !*** ./src/modules/GeraCpf.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ GeraCpf)
+/* harmony export */ });
+/* harmony import */ var _ValidarCpf__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ValidarCpf */ "./src/modules/ValidarCpf.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+var GeraCpf = /*#__PURE__*/function () {
+  function GeraCpf() {
+    _classCallCheck(this, GeraCpf);
+  }
+  _createClass(GeraCpf, [{
+    key: "rand",
+    value: function rand() {
+      var min = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 100000000;
+      var max = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 999999999;
+      return String(Math.floor(Math.random() * (max - min) + min));
+    }
+  }, {
+    key: "geraDigito",
+    value: function geraDigito() {
+      var cpfParcial = this.rand();
+      var digito1 = _ValidarCpf__WEBPACK_IMPORTED_MODULE_0__["default"].criaDigito(cpfParcial);
+      var digito2 = _ValidarCpf__WEBPACK_IMPORTED_MODULE_0__["default"].criaDigito(cpfParcial + digito1);
+      return cpfParcial.slice(0, 3) + '.' + cpfParcial.slice(3, 6) + '.' + cpfParcial.slice(6, 9) + '-' + digito1 + digito2;
+    }
+  }]);
+  return GeraCpf;
+}();
+
+
+/***/ }),
+
+/***/ "./src/modules/ValidarCpf.js":
+/*!***********************************!*\
+  !*** ./src/modules/ValidarCpf.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ValidarCpf)
+/* harmony export */ });
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+var _cpfLimpo = Symbol('cpfLimpo');
+var ValidarCpf = /*#__PURE__*/function () {
+  function ValidarCpf(cpf) {
+    _classCallCheck(this, ValidarCpf);
+    this[_cpfLimpo] = cpf.replace(/\D+/g, '');
+  }
+  _createClass(ValidarCpf, [{
+    key: "cpfLimpo",
+    get: function get() {
+      return this[_cpfLimpo];
+    }
+  }, {
+    key: "valida",
+    value: function valida() {
+      if (typeof this[_cpfLimpo] === 'undefined') return false;
+      if (this[_cpfLimpo].length !== 11) return false;
+      if (this.eSequencia()) return false;
+      var cpfParcial = this[_cpfLimpo].slice(0, 9);
+      var digito1 = ValidarCpf.criaDigito(cpfParcial); //criando o primieiro dígito do cpf
+      cpfParcial += digito1;
+      var digito2 = ValidarCpf.criaDigito(cpfParcial); //criando o segundo dígito do cpf
+
+      var cpfGerado = cpfParcial + digito2;
+      if (cpfGerado !== this[_cpfLimpo]) return false;
+      return true;
+    }
+  }, {
+    key: "eSequencia",
+    value: function eSequencia() {
+      var numeroRepetido = this[_cpfLimpo][0].repeat(11);
+      if (numeroRepetido !== this[_cpfLimpo]) return false;
+      return true;
+    }
+  }], [{
+    key: "criaDigito",
+    value: function criaDigito(cpfParcial) {
+      var numeroRegressivo = cpfParcial.length + 1;
+      var cpfArray = Array.from(cpfParcial);
+      var total = cpfArray.reduce(function (acumulador, valor) {
+        acumulador += valor * numeroRegressivo;
+        numeroRegressivo--;
+        return acumulador;
+      }, 0);
+      var digito = 11 - total % 11;
+      if (digito > 9) return '0';
+      return String(digito);
+    }
+  }]);
+  return ValidarCpf;
+}();
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/assets/css/style.css":
 /*!************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/assets/css/style.css ***!
@@ -52,13 +166,23 @@ h2 {
 }
 
 .container {
+    text-align: center;
     background-color: var(--second-color);
     box-sizing: border-box;
     max-width: 70rem;
     margin: 10vh auto;
     padding: 3rem;
 }
-`, "",{"version":3,"sources":["webpack://./src/assets/css/style.css"],"names":[],"mappings":"AAAA;IACI,iCAAiC;IACjC,oCAAoC;IACpC,kCAAkC;AACtC;;AAEA;IACI,SAAS;IACT,UAAU;AACd;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,iBAAiB;IACjB,sHAAsH;IACtH,sCAAsC;AAC1C;;AAEA;IACI,eAAe;IACf,mBAAmB;AACvB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,qCAAqC;IACrC,sBAAsB;IACtB,gBAAgB;IAChB,iBAAiB;IACjB,aAAa;AACjB","sourcesContent":[":root {\r\n    --primary-color: rgb(14, 94, 137);\r\n    --primary-color-dark: rgb(9, 64, 94);\r\n    --second-color: rgb(241, 245, 247); \r\n}\r\n\r\n* {\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n\r\nhtml {\r\n    font-size: 62.5%;\r\n}\r\n\r\nbody {\r\n    font-size: 1.6rem;\r\n    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;\r\n    background-color: var(--primary-color);\r\n}\r\n\r\nh1 {\r\n    font-size: 3rem;\r\n    margin-bottom: 2rem;\r\n}\r\n\r\nh2 {\r\n    font-size: 2rem;\r\n}\r\n\r\n.container {\r\n    background-color: var(--second-color);\r\n    box-sizing: border-box;\r\n    max-width: 70rem;\r\n    margin: 10vh auto;\r\n    padding: 3rem;\r\n}\r\n"],"sourceRoot":""}]);
+
+.container h2 {
+    color: var(--primary-color);
+    font-size: 3rem;
+}
+
+.container div {
+    font-size: 2rem;
+    margin-top: 3rem;
+}`, "",{"version":3,"sources":["webpack://./src/assets/css/style.css"],"names":[],"mappings":"AAAA;IACI,iCAAiC;IACjC,oCAAoC;IACpC,kCAAkC;AACtC;;AAEA;IACI,SAAS;IACT,UAAU;AACd;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,iBAAiB;IACjB,sHAAsH;IACtH,sCAAsC;AAC1C;;AAEA;IACI,eAAe;IACf,mBAAmB;AACvB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,kBAAkB;IAClB,qCAAqC;IACrC,sBAAsB;IACtB,gBAAgB;IAChB,iBAAiB;IACjB,aAAa;AACjB;;AAEA;IACI,2BAA2B;IAC3B,eAAe;AACnB;;AAEA;IACI,eAAe;IACf,gBAAgB;AACpB","sourcesContent":[":root {\r\n    --primary-color: rgb(14, 94, 137);\r\n    --primary-color-dark: rgb(9, 64, 94);\r\n    --second-color: rgb(241, 245, 247); \r\n}\r\n\r\n* {\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n\r\nhtml {\r\n    font-size: 62.5%;\r\n}\r\n\r\nbody {\r\n    font-size: 1.6rem;\r\n    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;\r\n    background-color: var(--primary-color);\r\n}\r\n\r\nh1 {\r\n    font-size: 3rem;\r\n    margin-bottom: 2rem;\r\n}\r\n\r\nh2 {\r\n    font-size: 2rem;\r\n}\r\n\r\n.container {\r\n    text-align: center;\r\n    background-color: var(--second-color);\r\n    box-sizing: border-box;\r\n    max-width: 70rem;\r\n    margin: 10vh auto;\r\n    padding: 3rem;\r\n}\r\n\r\n.container h2 {\r\n    color: var(--primary-color);\r\n    font-size: 3rem;\r\n}\r\n\r\n.container div {\r\n    font-size: 2rem;\r\n    margin-top: 3rem;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -585,8 +709,15 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _assets_css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/css/style.css */ "./src/assets/css/style.css");
+/* harmony import */ var _modules_GeraCpf__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/GeraCpf */ "./src/modules/GeraCpf.js");
+/* harmony import */ var _assets_css_style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/css/style.css */ "./src/assets/css/style.css");
 
+
+(function () {
+  var cpf = new _modules_GeraCpf__WEBPACK_IMPORTED_MODULE_0__["default"]();
+  var cpfGerado = document.querySelector('.cpfGerado');
+  cpfGerado.innerHTML = cpf.geraDigito();
+})();
 })();
 
 /******/ })()

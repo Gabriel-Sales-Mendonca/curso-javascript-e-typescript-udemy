@@ -29,9 +29,20 @@ h2 {
 }
 
 .container {
+    text-align: center;
     background-color: var(--second-color);
     box-sizing: border-box;
     max-width: 70rem;
     margin: 10vh auto;
     padding: 3rem;
+}
+
+.container h2 {
+    color: var(--primary-color);
+    font-size: 3rem;
+}
+
+.container div {
+    font-size: 2rem;
+    margin-top: 3rem;
 }
