@@ -12,10 +12,6 @@ mongoose.connect(process.env.connectionString)
 
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
-const store = new MongoStore({
-    mongoUrl: process.env.connectionString,
-    collectionName: 'session'
-})
 const flash = require('connect-flash')
 
 const routes = require('./routes')
@@ -27,7 +23,7 @@ app.use(express.static(path.resolve(__dirname, 'public')))
 
 const sessionOptions = session({
     secret: 'lorem ipsom',
-    store: store,
+    store: MongoStore.create({ mongoUrl: process.env.CONNECTIONSTRING }),
     resave: false,
     saveUninitialized: false,
     cookie: {
