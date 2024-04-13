@@ -36,8 +36,6 @@ const sessionOptions = session({
 app.use(sessionOptions)
 app.use(flash())
 
-app.use(routes)
-
 app.set('views', path.resolve(__dirname, 'src', 'views'))
 app.set('view engine', 'ejs')
 
@@ -45,6 +43,8 @@ app.use(csrf())
 app.use(middlewareGlobal)
 app.use(checkCsrfError)
 app.use(csrfMiddleware)
+
+app.use(routes) //tem que ficar no final
 
 app.on('pronto', () => {
     app.listen(3000, () => {

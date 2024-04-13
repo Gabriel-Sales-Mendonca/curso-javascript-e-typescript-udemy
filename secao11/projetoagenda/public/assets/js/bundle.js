@@ -21,44 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `:root {
-    --primary-color: rgb(14, 94, 137);
-    --primary-color-dark: rgb(9, 64, 94);
-    --second-color: rgb(241, 245, 247); 
-}
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    font-size: 62.5%;
-}
-
-body {
-    font-size: 1.6rem;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: var(--primary-color);
-}
-
-h1 {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-}
-
-h2 {
-    font-size: 2rem;
-}
-
-.container {
-    background-color: var(--second-color);
-    box-sizing: border-box;
-    max-width: 70rem;
-    margin: 10vh auto;
-    padding: 3rem;
-}
-`, "",{"version":3,"sources":["webpack://./frontend/assets/css/style.css"],"names":[],"mappings":"AAAA;IACI,iCAAiC;IACjC,oCAAoC;IACpC,kCAAkC;AACtC;;AAEA;IACI,SAAS;IACT,UAAU;AACd;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,iBAAiB;IACjB,sHAAsH;IACtH,sCAAsC;AAC1C;;AAEA;IACI,eAAe;IACf,mBAAmB;AACvB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,qCAAqC;IACrC,sBAAsB;IACtB,gBAAgB;IAChB,iBAAiB;IACjB,aAAa;AACjB","sourcesContent":[":root {\r\n    --primary-color: rgb(14, 94, 137);\r\n    --primary-color-dark: rgb(9, 64, 94);\r\n    --second-color: rgb(241, 245, 247); \r\n}\r\n\r\n* {\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n\r\nhtml {\r\n    font-size: 62.5%;\r\n}\r\n\r\nbody {\r\n    font-size: 1.6rem;\r\n    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;\r\n    background-color: var(--primary-color);\r\n}\r\n\r\nh1 {\r\n    font-size: 3rem;\r\n    margin-bottom: 2rem;\r\n}\r\n\r\nh2 {\r\n    font-size: 2rem;\r\n}\r\n\r\n.container {\r\n    background-color: var(--second-color);\r\n    box-sizing: border-box;\r\n    max-width: 70rem;\r\n    margin: 10vh auto;\r\n    padding: 3rem;\r\n}\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ``, "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
