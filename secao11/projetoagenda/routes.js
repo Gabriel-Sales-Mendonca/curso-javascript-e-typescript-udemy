@@ -1,5 +1,6 @@
 const express = require('express')
 const route = express.Router()
+
 const homeController = require('./src/controller/homeControllers')
 const loginController = require('./src/controller/loginControllers')
 

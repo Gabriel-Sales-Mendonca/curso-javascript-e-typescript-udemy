@@ -1,5 +1,5 @@
 module.exports.middlewareGlobal = (req, res, next) => {
-    console.log('Executando middleware global...');
+    res.locals.errors = req.flash('errors');
     next();
 };
 
