@@ -20,14 +20,20 @@ class Login {
         this.valid()
         if(this.errors.length > 0) return
 
-        try{
-            const salt = bcrypt.genSaltSync()
-            this.body.password = bcrypt.hashSync(this.body.password, salt)
-            
-            this.user = await LoginModel.create(this.body)
-        } catch(e) {
-            console.log(e)
-        }
+        await this.userExist()
+
+        if(this.errors.length > 0) return
+
+        const salt = bcrypt.genSaltSync()
+        this.body.password = bcrypt.hashSync(this.body.password, salt)
+
+        this.user = await LoginModel.create(this.body)
+    }
+
+    async userExist() {
+        const user = await LoginModel.findOne({ email: this.body.email })
+
+        if(user) this.errors.push('Usuário já existe')
     }
 
     valid() {
