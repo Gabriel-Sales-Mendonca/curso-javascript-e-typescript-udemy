@@ -30,10 +30,28 @@ class Login {
         this.user = await LoginModel.create(this.body)
     }
 
-    async userExist() {
-        const user = await LoginModel.findOne({ email: this.body.email })
+    async logar() {
+        this.valid()
 
-        if(user) this.errors.push('Usuário já existe')
+        this.user = await LoginModel.findOne({ email: this.body.email })
+
+        if(!this.user) {
+            this.errors.push('Usuário não cadastrado')
+            return
+        }
+
+        if(!bcrypt.compareSync(this.body.password, this.user.password)) {
+            this.errors.push('Senha incorreta')
+            return
+        }
+
+        
+    }
+
+    async userExist() {
+        this.user = await LoginModel.findOne({ email: this.body.email })
+
+        if(this.user) this.errors.push('Usuário já existe')
     }
 
     valid() {
