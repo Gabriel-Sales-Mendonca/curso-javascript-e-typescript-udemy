@@ -30,9 +30,10 @@ exports.register = async (req, res) => {
 exports.editIndex = async (req, res) => {
     if(!req.params.id) return res.render('404')
 
-    const contato = await Contato.searchById(req.params.id)
+    const contatoInstance = new Contato(req.body)
+    const contato = await contatoInstance.searchById(req.params.id)
 
     if(!contato) return res.render('404')
 
-    res.render('contato', { contato })
+    res.render('contato', { contato: contato })
 }
