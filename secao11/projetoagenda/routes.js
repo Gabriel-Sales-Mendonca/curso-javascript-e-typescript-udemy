@@ -19,5 +19,7 @@ route.get('/login/logout', loginController.logout)
 route.get('/contato/index', middleware.checkLogin, contatoController.index)
 route.post('/contato/register', middleware.checkLogin, contatoController.register)
 route.get('/contato/index/:id', middleware.checkLogin, contatoController.editIndex)
+route.post('/contato/edit/:id', middleware.checkLogin, contatoController.edit)
+route.get('/contato/delete/:id', middleware.checkLogin, contatoController.delete)
 
 module.exports = route
