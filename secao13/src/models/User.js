@@ -10,31 +10,36 @@ export default class User extends Model {
         validate: {
           len: {
             args: [3, 255],
-            msg: 'O campo NOME deve ter entre 3 a 255 caracteres.'
-          }
-        }
+            msg: 'O campo NOME deve ter entre 3 a 255 caracteres.',
+          },
+        },
       },
       email: {
         type: Sequelize.STRING,
         defaultValue: '',
+        unique: {
+          msg: 'Email já existe.'
+        },
         validate: {
           isEmail: {
-            msg: 'Email inválido.'
-          }
-        }
+            msg: 'Email inválido.',
+          },
+        },
       },
       password_hash: {
-        type: Sequelize.INTEGER,
-        defaultValue: ''
+        type: Sequelize.STRING,
+        defaultValue: '',
       },
       password: {
         type: Sequelize.VIRTUAL,
         defaultValue: '',
         validate: {
-          len: [6, 50],
-          msg: 'O campo SENHA deve ter entre 6 a 50 caracteres.'
-        }
-      }
+          len: {
+            args: [6, 50],
+            msg: 'O campo SENHA deve ter entre 6 a 50 caracteres.',
+          },
+        },
+      },
     }, {
       sequelize
     })
