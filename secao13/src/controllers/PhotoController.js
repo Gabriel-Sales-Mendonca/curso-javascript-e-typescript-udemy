@@ -1,6 +1,6 @@
 class Photo {
   async store(req, res) {
-    return res.json('tudo certo!')
+    return res.json(req.file)
   }
 }
 
