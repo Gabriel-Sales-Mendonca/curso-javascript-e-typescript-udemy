@@ -1,7 +1,7 @@
 import multer from 'multer'
 import multerConfig from '../config/multer'
 import Photo from '../models/Photo'
-//import Aluno from '../models/Aluno'
+import Aluno from '../models/Aluno'
 
 const upload = multer(multerConfig).single('photo')
 
@@ -14,12 +14,27 @@ class PhotoController {
         })
       }
 
-      const { originalname, filename } = req.file
-      const { alunos_id } = req.body
+      try {
+        const { originalname, filename } = req.file
+        const { alunos_id } = req.body
 
-      const photo = await Photo.create({ originalname, filename, alunos_id })
+        const aluno  = await Aluno.findByPk(alunos_id)
 
-      return res.json(photo)
+        if(!aluno) {
+          return res.status(400).json({
+            errors: ['Aluno não existe.']
+          })
+        }
+
+        const photo = await Photo.create({ originalname, filename, alunos_id })
+
+        return res.json(photo)
+
+        } catch(e) {
+        return res.status(400).json({
+          errors: [`Erro ao cadastrar foto na base de dados: ${e}`]
+        })
+      }
     })
   }
 }
