@@ -11,6 +11,7 @@ export default function Menu() {
                 <li><Link to='/about'>About</Link></li>
                 <li><Link to='/posts'>Posts</Link></li>
                 <li><Link to='/posts/10'>Posts Específicos</Link></li>
+                <li><Link to='/redirect'>Redirect</Link></li>
             </ul>
         </List>
     )

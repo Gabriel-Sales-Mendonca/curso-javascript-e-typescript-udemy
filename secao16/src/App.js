@@ -6,6 +6,7 @@ import Menu from './components/Menu'
 import Home from './components/Home'
 import About from './components/About'
 import Posts from './components/Posts'
+import Redirect from './components/Redirect'
 import NotFound from './components/NotFound'
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
         <Route path='/about' element={<About />} />
         <Route path='/posts/:id' element={<Posts />} />
         <Route path='/posts' element={<Posts />} />
+        <Route path='/redirect' element={<Redirect />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
       <GlobalStyles />
