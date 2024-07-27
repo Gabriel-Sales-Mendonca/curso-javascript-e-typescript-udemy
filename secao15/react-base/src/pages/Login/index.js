@@ -1,20 +1,19 @@
 import React from 'react'
-import { toast } from 'react-toastify'
+import { useDispatch } from 'react-redux'
 
 import { Title } from './styled'
 import { Container } from '../../styles/GlobalStyles'
-import axios from '../../services/axios'
 
 export default function Login() {
-    toast.success('Você está em Home Page')
-    React.useEffect(() => {
-        async function getData() {
-            const response = await axios.get('/alunos')
-            console.log(response)
-        }
+    const dispatch = useDispatch()
 
-        getData()
-    }, [])
+    function handleClick(e) {
+        e.preventDefault()
+
+        dispatch({
+            type: 'BOTAO_CLICADO'
+        })
+    }
 
     return (
         <Container>
@@ -23,7 +22,7 @@ export default function Login() {
                 <small>Olá</small>
             </Title>
             <p>Lorem ipsum dolor sit amet.</p>
-            <button>Enviar</button>
+            <button onClick={handleClick} >Enviar</button>
         </Container>
     )
 }
