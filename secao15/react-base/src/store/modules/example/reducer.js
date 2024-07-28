@@ -1,13 +1,26 @@
+import * as types from '../types'
+
 const initialState = {
     buttonClicked: false
 }
 
 export default function(state = initialState, action) {
     switch(action.type) {
-        case 'BUTTON_CLICKED': {
+        case types.BUTTON_CLICKED_SUCESS: {
+            console.log('Sucesso')
             const newState = { ...state }
             newState.buttonClicked = !newState.buttonClicked
             return newState
+        }
+
+        case types.BUTTON_CLICKED_FAILURE: {
+            console.log('Falha')
+            return state
+        }
+
+        case types.BUTTON_CLICKED_REQUEST: {
+            console.log('Fazendo a requisição')
+            return initialState
         }
 
         default: {
