@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { get } from 'lodash'
-import { FaUserCircle } from 'react-icons/fa'
+import { FaUserCircle, FaEdit, FaWindowClose } from 'react-icons/fa'
 
 import { Container } from '../../styles/GlobalStyles'
 import axios from '../../services/axios'
@@ -21,7 +22,7 @@ export default function Alunos() {
     return (
         <Container>
             <h1>Alunos</h1>
-
+            
             <AlunoContainer>
                 {alunos.map((aluno) => (
                     <div key={String(aluno.id)}>
@@ -34,8 +35,14 @@ export default function Alunos() {
                         </ProfilePicture>
 
                         <span>{aluno.nome}</span>
-                        <span>{aluno.sobrenome}</span>
                         <span>{aluno.email}</span>
+
+                        <Link to={`/aluno/${aluno.id}/edit`} >
+                            <FaEdit size={16} />
+                        </Link>
+                        <Link to={`/aluno/${aluno.id}/delete`} >
+                            <FaWindowClose size={16} />
+                        </Link>
                     </div>
                 ))}
             </AlunoContainer>
