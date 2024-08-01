@@ -31,6 +31,10 @@ export default createGlobalStyle`
         font-weight: 700;
     }
 
+    button:hover {
+        background-color: red;
+    }
+
     a {
         text-decoration: none;
         color: ${primaryColor};
