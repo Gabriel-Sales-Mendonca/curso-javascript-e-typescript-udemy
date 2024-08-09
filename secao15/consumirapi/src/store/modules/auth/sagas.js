@@ -10,7 +10,7 @@ import history from '../../../services/history'
 function* loginRequest({ payload }) {
     try {
         const response = yield call(axios.post, '/tokens', payload)
-        yield put(actions.loginSucess({ ...response.data }))
+        yield put(actions.loginSuccess({ ...response.data }))
 
         toast.success('Você fez login.')
 
@@ -30,7 +30,12 @@ function persistRehydrate({ payload }) {
     axios.defaults.headers.Authorization = `Bearer ${token}`
 }
 
+function registerRequest({ payload }) {
+    console.log(payload)
+}
+
 export default all([
     takeLatest(types.LOGIN_REQUEST, loginRequest),
-    takeLatest(types.PERSIST_REHYDRATE, persistRehydrate)
+    takeLatest(types.PERSIST_REHYDRATE, persistRehydrate),
+    takeLatest(types.REGISTER_REQUEST, registerRequest)
 ])

@@ -6,9 +6,9 @@ export function buttonClickedRequest() {
     }
 }
 
-export function buttonClickedSucess() {
+export function buttonClickedSuccess() {
     return {
-        type: types.BUTTON_CLICKED_SUCESS
+        type: types.BUTTON_CLICKED_SUCcESS
     }
 }
 

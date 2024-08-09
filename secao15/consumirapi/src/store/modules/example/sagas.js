@@ -14,7 +14,7 @@ function* exampleRequest() {
     try {
         yield call(request)
         toast.success('Sucesso')
-        yield put(actions.buttonClickedSucess())
+        yield put(actions.buttonClickedSuccess())
     } catch {
         yield put(actions.buttonClickedFailure())
     }

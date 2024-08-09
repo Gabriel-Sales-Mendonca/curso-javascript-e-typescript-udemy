@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
 import { isEmail } from 'validator'
 import { toast } from 'react-toastify'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { get } from 'lodash'
 
 import { Container } from '../../styles/GlobalStyles'
 import { Form } from './styled'
 import * as actions from '../../store/modules/auth/actions'
+import Loading from '../../components/Loading'
 
 export default function Login(props) {
     const dispatch = useDispatch()
+    let isLoading = useSelector((state) => state.auth.isLoading)
 
     const prevPath = get(props, 'location.state.prevPath', '/')
 
@@ -38,6 +40,7 @@ export default function Login(props) {
 
     return (
         <Container>
+            <Loading isLoading={isLoading} />
             <h1>Login</h1>
 
             <Form onSubmit={handleSubmit}>
@@ -47,7 +50,7 @@ export default function Login(props) {
                 </label>
                 <label htmlFor='password'>
                     Senha:
-                    <input name='password' id='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Sua senha' />
+                    <input type='password' name='password' id='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Sua senha' />
                 </label>
 
                 <button type='submit'>Acessar</button>

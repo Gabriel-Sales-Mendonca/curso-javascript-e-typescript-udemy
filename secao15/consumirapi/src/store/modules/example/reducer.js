@@ -6,7 +6,7 @@ const initialState = {
 
 export default function exampleReducer(state = initialState, action) {
     switch(action.type) {
-        case types.BUTTON_CLICKED_SUCESS: {
+        case types.BUTTON_CLICKED_SUCCESS: {
             console.log('Sucesso')
             const newState = { ...state }
             newState.buttonClicked = !newState.buttonClicked
