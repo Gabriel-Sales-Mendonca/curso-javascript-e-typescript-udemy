@@ -27,3 +27,17 @@ export function registerRequest(payload) {
         payload: payload
     }
 }
+
+export function registerSuccess(payload) {
+    return {
+        type: types.REGISTER_SUCCESS,
+        payload: payload
+    }
+}
+
+export function registerFailure(payload) {
+    return {
+        type: types.REGISTER_FAILURE,
+        payload: payload
+    }
+}

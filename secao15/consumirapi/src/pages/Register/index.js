@@ -47,7 +47,7 @@ export default function Register() {
 
         if(formErrors) return
 
-        dispatch(actions.registerRequest({ nome, email, password }))
+        dispatch(actions.registerRequest({ id, nome, email, password }))
     }
 
     return (
