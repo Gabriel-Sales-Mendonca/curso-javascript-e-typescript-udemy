@@ -16,9 +16,9 @@ export default function Routes() {
         <React.StrictMode>
             <Switch location={location}>
                 <MyRoute exact path='/' component={Alunos} isClosed={false} />
-                <MyRoute path='/aluno:id/edit' component={Aluno} isClosed={true} />
+                <MyRoute path='/aluno/:id/edit' component={Aluno} isClosed={true} />
                 <MyRoute path='/aluno' component={Aluno} isClosed={true} />
-                <MyRoute path='/fotos:id' component={Fotos} isClosed={true} />
+                <MyRoute path='/fotos/:id' component={Fotos} isClosed={true} />
                 <MyRoute path='/login' component={Login} isClosed={false} />
                 <MyRoute path='/register' component={Register} isClosed={false} />
                 <MyRoute path='*' component={Page404} />
