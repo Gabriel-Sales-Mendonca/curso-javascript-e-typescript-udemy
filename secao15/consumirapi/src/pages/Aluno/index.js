@@ -145,6 +145,7 @@ export default function Aluno({ match }) {
             
             <Loading isLoading={isLoading} />
 
+        {id ? (
             <ProfilePricture>
                 {foto ? (
                     <img src={foto} alt={nome} />
@@ -155,6 +156,8 @@ export default function Aluno({ match }) {
                     <FaEdit size={24} />
                 </Link>
             </ProfilePricture>
+        ) : ''}
+
 
             <Form onSubmit={handleSubmit}>
                 <label>Nome:</label>
