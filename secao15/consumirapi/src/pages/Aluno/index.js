@@ -151,7 +151,7 @@ export default function Aluno({ match }) {
                 ) : (
                     <FaUserCircle size={180} />
                 )}
-                <Link to={`/photos/${id}`}>
+                <Link to={`/fotos/${id}`}>
                     <FaEdit size={24} />
                 </Link>
             </ProfilePricture>
