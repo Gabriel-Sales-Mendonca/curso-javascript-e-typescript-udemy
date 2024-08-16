@@ -21,7 +21,13 @@ export const ProfilePicture = styled.section`
     }
 `
 
+export const Button = styled.button`
+    margin-top: 10px;
+    padding: 0 20px;
+`
+
 export const NovoAluno = styled(Link)`
     display: block;
     padding: 10px 0;
+    color: white;
 `

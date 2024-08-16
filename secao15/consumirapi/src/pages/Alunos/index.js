@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 
 import { Container } from '../../styles/GlobalStyles'
 import axios from '../../services/axios'
-import { AlunoContainer, ProfilePicture, NovoAluno } from './styled'
+import { AlunoContainer, ProfilePicture, NovoAluno, Button } from './styled'
 import Loading from '../../components/Loading'
 
 export default function Alunos() {
@@ -58,7 +58,9 @@ export default function Alunos() {
             <Loading isLoading={isLoading} />
             <h1>Alunos</h1>
 
-            <NovoAluno to='/aluno/'>Novo Aluno</NovoAluno>
+            <Button>
+                <NovoAluno to='/aluno/'>Novo Aluno</NovoAluno>
+            </Button>
             
             <AlunoContainer>
                 {alunos.map((aluno, index) => (
