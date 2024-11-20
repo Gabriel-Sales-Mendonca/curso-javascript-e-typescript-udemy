@@ -1,0 +1,16 @@
+funcionalidades:
+    - as mensagens de erro começam escondidas;
+
+    - enviar formulario:
+        - esconder as mensagens de erro depois que a pessoa enviar o formulário;
+
+        - validar os campos:
+            - username deve ter entre 2 e 31 caracteres;
+            - email deve ser valido conforme o validator;
+            - senha deve ter no minimo 4 caracteres e os campos senha e repetir senha devem ser iguais;
+
+        - exibir mensagens de erro sempre que a pessoa enviar o formulário:
+            - mensagem para campo vazio;
+            - mensagem personalizada para cada campo;
+
+        - exibir um console.log dizendo que o formulário pode ser enviado ou não;
