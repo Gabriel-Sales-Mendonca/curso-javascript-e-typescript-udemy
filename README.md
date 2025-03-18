@@ -8,6 +8,7 @@ Neste curso eu desenvolvi vários projetos e resolvi vários exercícios com Jav
 - 🔐 Armazenando token **JWT** no navegador
 - Hooks
 - Redux
+- WebPack
 - 📐 Design Patterns
 - Styled Components
 - HTML / CSS
